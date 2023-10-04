@@ -1,0 +1,572 @@
+### đăng ký
+POST  http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+    "phoneNumber": "0912345679",
+    "password": "khoa1234",
+    "confirmPassword": "khoa1234",
+    "fullName": "Nguyễn Văn Khoa",
+    "dateOfBirth": "26/03/2000",
+    "address": "15 Nam Kỳ Khởi Nghĩa, Quận 1, TP.HCM",
+    "lat": "10.775406506273512",
+    "lng": "106.69902685057929"
+}
+
+### đăng nhập
+POST  http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "phoneNumber": "0944244304",
+    "password": "khoa1234"
+}
+
+### profile
+GET http://localhost:3000/api/auth/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNhM2FmZWIxZDQ4NWNhOTY2N2I5OTEiLCJpYXQiOjE2MzEyMDYxNTR9.c1BKq61iG3wNIBYX6PVPFs9wA42mX7fHNJmsgpPQuAY
+
+
+### send OTP
+GET http://localhost:3000/api/auth/sendOTP?phonenumber=0944244304&chanel=sms
+Content-Type: application/json
+
+### xac thuc
+GET http://localhost:3000/api/auth/verify?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6IiRhcmdvbjJpJHY9MTkkbT00MDk2LHQ9MyxwPTEkRSt4VTNXRDN4d0F0QjRvSjdVVWNLdyRzZy84aHFiMzV6ZUdmclNTWGVYRTBNUklZQjJQWFdueGNIckJiZWMvYkkwIiwicGhvbmVOdW1iZXIiOiIwOTQ0MjQ0MzA0IiwiZnVsbE5hbWUiOiJOZ3V54buFbiBWxINuIEtob2EiLCJhdmF0YXIiOiJEOi9CYWlUYXAva2hvYWx1YW50b3RuZ2hpZXAvaW1hZ2UvYXZ0LnBuZyIsImRhdGVPZkJpcnRoIjoiMjYvMDMvMjAwMCIsIm1hbGUiOnRydWUsImFkZHJlc3MiOiIxNSBOYW0gS-G7syBLaOG7n2kgTmdoxKlhLCBRdeG6rW4gMSwgVFAuSENNIiwibGF0IjoiMTAuNzc1NDA2NTA2MjczNTEyIiwibG5nIjoiMTA2LjY5OTAyNjg1MDU3OTI5IiwiaWF0IjoxNjM5MzI1ODY0LCJleHAiOjE2MzkzMjc2NjR9.WySA37rjzvp7X6QiCeTGFldLhhFwlgmwOE-5HA3dQ_s&code=953020
+Content-Type: application/json
+
+### update user khách hàng
+PATCH  http://localhost:3000/api/auth
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWFmNzE4MDAwZDRiOTNiY2JjMmFhMDUiLCJpYXQiOjE2Mzg4ODc4OTR9.f3hmsgAzZqxqWEw-p2Azfs58wAO-jhuW4aWs7CW6SXc
+
+{
+    "phoneNumber": "0912345679",
+    "profile": {
+        "fullName": "Nguyễn Văn Khoa",
+        "avatar": "D:/BaiTap/khoaluantotnghiep/image/avt.png",
+        "dateOfBirth": "10/12/2000",
+        "male": true,
+        "address": "TP.HCM, Quận 1, 15 Nam Kỳ Khởi Nghĩa",
+        "lat": "10.775406506273512",
+        "lng": "106.69902685057929"
+    }
+
+}
+### passs
+PATCH  http://localhost:3000/api/auth/password
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWFmNzE4MDAwZDRiOTNiY2JjMmFhMDUiLCJpYXQiOjE2Mzg4ODc4OTR9.f3hmsgAzZqxqWEw-p2Azfs58wAO-jhuW4aWs7CW6SXc
+
+{
+    "oldPassword": "khoa1234",
+    "password": "khoa123"
+}
+
+### passs
+PUT  http://localhost:3000/api/auth/changeAddress
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWJiNGMwZDI0ODk2ODlkNmVjNjY3YzUiLCJpYXQiOjE2Mzk2NjQ4MzR9.wWNSEQX1E6umAb6fV0dKLPTRjdH68NCyb-i5heqcRsI
+
+{
+    "address": "TP.HCM, Quận 1, 17 Nam Kỳ Khởi Nghĩa ACB",
+    "lat": "10.775406506273512",
+    "lng":"106.69902685057929"
+}
+
+### quên mật khẩu
+POST  http://localhost:3000/api/auth/forgot-password
+Content-Type: application/json
+
+{
+    "phoneNumber": "0944244304",
+    "newPassword": "khoa123"
+}
+
+### xac thuc quên mật khẩu
+GET http://localhost:3000/api/auth/verify-newPassword?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6IiRhcmdvbjJpJHY9MTkkbT00MDk2LHQ9MyxwPTEkRGkyQXBtRTRzOFZpbCt0R2FxeklKQSRCQUtMZFEyMk5ha1FJUzd0d3EzY0RCUyt3TlFSSEZZcVovQjVZUy9zZjZJIiwicGhvbmVOdW1iZXIiOiIwOTQ0MjQ0MzA0IiwiaWF0IjoxNjM5NDcyNDU2LCJleHAiOjE2Mzk0NzQyNTZ9.qPpNfhR8-Zqa_JP4eS_EANjfQ2GL8e4pHps_yYQMN4k&code=054511
+Content-Type: application/json
+
+### Tạo category
+POST  http://localhost:3000/api/category
+Content-Type: application/json
+
+{
+    "name": "Sushi",
+    "icon": "sushi.png"
+}
+
+### Lấy category 
+GET  http://localhost:3000/api/category
+Content-Type: application/json
+
+
+### Thêm nhà hàng
+POST  http://localhost:3000/api/restaurant/register
+Content-Type: application/json
+
+{
+    "name": "Coffit - Trà Sữa & Bánh Mì Que",
+    "phoneNumber": "0947586933",
+    "password": "khoa123",
+    "rating": 4.5,
+    "categories": ["61433c42238856486da2c8f7", "61433e09238856486da2c8fd"],
+    "duration": "15-20 min",
+    "open": "7:00",
+    "close": "22:00",
+    "location": "174 Phạm Phú Thứ, P. 11, Tân Bình, TP. HCM",
+    "photo": "https://images.foody.vn/res/g103/1026724/prof/s640x400/file_restaurant_photo_k7fm_16148-1db74622-210304181947.jpg",
+    "fullName": "Nguyễn Văn Khoa",
+    "avatar": "avt.png",
+    "CMND": "38577000",
+    "dateOfBirth": "06/10/2000",
+    "male": true,
+    "address": "117/6 Ba Vân",
+    "lat": "10.791500096113658",
+    "lng": "106.64380088142437"
+}
+### đăng nhập vào cửa hàng
+POST  http://localhost:3000/api/restaurant/login
+Content-Type: application/json
+
+{
+    "phoneNumber": "0925147863",
+    "password": "long123"
+}
+
+### Lấy cửa hàng 
+GET  http://localhost:3000/api/restaurant
+Content-Type: application/json
+
+### Lấy cửa hàng phân trang
+GET  http://localhost:3000/api/restaurant/page?number=1
+Content-Type: application/json
+
+### Tìm kiếm cửa hàng
+GET  http://localhost:3000/api/restaurant/search?name=Cơm
+Content-Type: application/json
+
+### Tìm kiếm cửa hàng category
+GET  http://localhost:3000/api/restaurant/category/61433c42238856486da2c8f7
+Content-Type: application/json
+
+### Tìm kiếm cửa hàng gần tôi
+GET  http://localhost:3000/api/restaurant/haversine?latStart=10.775406506273512&lngStart=106.69902685057929
+Content-Type: application/json
+
+### lấy cửa hàng có khuyến mãi
+GET  http://localhost:3000/api/restaurant/discount
+Content-Type: application/json
+
+### lấy cửa hàng có khuyến mãi
+GET  http://localhost:3000/api/discount/restaurantAll
+Content-Type: application/json
+
+### Tạo menu cho cửa hàng
+POST http://localhost:3000/api/menu
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzI5NzQ5NTF9.KkTn-jNwDAgNx6xs-39ayKuybT4PSl2J0Cz4P_nDuAA
+
+{
+    "name": "test delete"
+}
+
+### update menu
+PUT http://localhost:3000/api/menu/6154744474d88fefdde4c12d
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzI5NzQ5NTF9.KkTn-jNwDAgNx6xs-39ayKuybT4PSl2J0Cz4P_nDuAA
+
+{
+  "name": "Pizza khuyến mãi update"
+}
+
+### delete menu
+DELETE http://localhost:3000/api/menu/614fe7e5665f4cbdfe8b9d11
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzI5NzQ5NTF9.KkTn-jNwDAgNx6xs-39ayKuybT4PSl2J0Cz4P_nDuAA
+
+
+### lấy menu cho cửa hàng
+GET http://localhost:3000/api/menu
+Content-Type: application/json
+
+### tạo food mới 
+POST http://localhost:3000/api/food
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ0YjMxMGQ1NzI0NzEyZTdkM2E0ZmIiLCJpYXQiOjE2MzQ2MjgyNzl9.WpinVTjhvn8SYWzIPd8bZu0HFBd1Wy6AU3xmDhe0bFQ
+
+{
+    "name" : "Test Status",
+    "photo": "D:/BaiTap/khoaluantotnghiep/image/0965a2e6-c813-4870-a4d6-7b2ad2998482.jpg",
+    "description": "aaaaaaaaaaaaaaaaaaaa",
+    "menu": "614558ccd646831309495384",
+    "price": 20000,
+    "quantity": 100,
+    "choose": ["615bd1d591a28e0334a55bcb", "615bd20591a28e0334a55bcd"]
+}
+
+### update
+PUT http://localhost:3000/api/food/615bd89b9875bee7120e9fb7
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzM0MDY2MzJ9.olIolnPvZr2RuVLsaIMPOHMDFjcuwihX8dPn-tFv1Kg
+
+{
+    "name" : "test choose update",
+    "photo": "https://images.foody.vn/res/g1/4030/s120x120/201891914910-salad-a.jpg",
+    "description": "aaaaaaaaaaaaaaaaaaaa kkkk",
+    "menu": "61553288f122a0f795fa4cce",
+    "price": 150000,
+    "quantity": 100,
+    "choose": ["615bd1d591a28e0334a55bcb"]
+}
+
+### delete food
+DELETE http://localhost:3000/api/food/616e8c5fce8ed45f02ff5fc4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ0YjMxMGQ1NzI0NzEyZTdkM2E0ZmIiLCJpYXQiOjE2MzQ2MjgyNzl9.WpinVTjhvn8SYWzIPd8bZu0HFBd1Wy6AU3xmDhe0bFQ
+
+### lấy food theo menu
+GET  http://localhost:3000/api/food/614558ccd646831309495384
+Content-Type: application/json
+
+###
+GET  http://localhost:3000/api/food/testFoodCombo/614558ccd646831309495384
+Content-Type: application/json
+### lấy food theo cửa hàng
+GET  http://localhost:3000/api/food/restaurant/6144b310d5724712e7d3a4fb
+Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ0YjMxMGQ1NzI0NzEyZTdkM2E0ZmIiLCJpYXQiOjE2MzQxMzE0MDJ9.J-Ydl7eLthTBGR8hQ9D6xpB3fltOhOAKSYqVDwqd1qc
+
+### lấy food all
+GET  http://localhost:3000/api/food/all
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ0YjMxMGQ1NzI0NzEyZTdkM2E0ZmIiLCJpYXQiOjE2MzQxNDIyNDF9.tAEnAe799mwvWuqV9fIplgZJcCV0RKxGyoYNJ4IZV-E
+
+
+### lấy food đã xóa
+GET  http://localhost:3000/api/food/deleteFood/success
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2Mzk1ODAxNzh9.R4AB2KTndUH3OGXjF6YXdNFVAEJHgG3vEHQxrh7paWE
+
+### xóa món ăn và khôi phục tự động
+PUT  http://localhost:3000/api/food/delete-revert/61b3651e73a0f941fc7d555b
+Content-Type: application/json
+
+### lấy combo liên quan vs food
+GET  http://localhost:3000/api/food/mon-an-lq/6170fa9eadfb0a6a5efea7fd
+Content-Type: application/json
+
+### Lay menu cua hang 
+GET  http://localhost:3000/api/menu/61454e9d3456f3c4aceacea0
+Content-Type: application/json
+
+
+### Lay menu cua hang 
+GET  http://localhost:3000/api/food
+Content-Type: application/json
+
+### tạo hóa đơn
+POST http://localhost:3000/api/order
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNhM2FmZWIxZDQ4NWNhOTY2N2I5OTEiLCJpYXQiOjE2MzM3Njc1MjZ9.VOje1q1LSw--nwXXK7r4ryLBmLxX4JG_81jEpWXSym8
+
+{
+    "arrayFood": [
+        {
+            "food": "6170f19fadfb0a6a5efea4f8",
+            "quantityInCart": 1,
+            "totalFood": 15000
+        },
+        {
+            "food": "6170f1d1adfb0a6a5efea4ff",
+            "quantityInCart": 2,
+            "totalFood": 15000
+        }
+    ],
+    "restaurant": "61454e9d3456f3c4aceacea0",
+    "pay": "61614a21855f83b83e611b80",
+    "ship": 10000,
+    "total": 20000
+}
+
+### tạo hóa đơn 2
+POST http://localhost:3000/api/order
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MThhOGQ5ZDA4NTM4NjZlYzMyMzE3MDIiLCJpYXQiOjE2Mzc1NDg1Mzl9.qohoI9PTUTiRRXuClsk1e-eoGiM8Kp9WPtlt509Q-gU
+
+{
+    "arrayFood": [
+        {
+            "idFood": "61b36e30465efe5f2629bd48",
+            "quantityFood": 6,
+            "price": 70000,
+            "amount": 750000
+        }
+    ],
+    "restaurant": "61454e9d3456f3c4aceacea0",
+    "pay": "61614a21855f83b83e611b80",
+    "ship": 10000,
+    "totalCost": 70000,
+    "total": 760000
+}
+
+### lấy web
+GET http://localhost:3000/api/order/success-payment?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcnJheUZvb2QiOlt7ImlkRm9vZCI6IjYxNzBmMWQxYWRmYjBhNmE1ZWZlYTRmZiIsInF1YW50aXR5Rm9vZCI6NiwiYW1vdW50Ijo3NTAwMDB9XSwicmVzdGF1cmFudCI6IjYxNDU0ZTlkMzQ1NmYzYzRhY2VhY2VhMCIsInBheSI6IjYxNjE0YTM1ODU1ZjgzYjgzZTYxMWI4MiIsInNoaXAiOjEwMDAwLCJ0b3RhbCI6NzYwMDAwLCJ1c2VyIjoiNjE4YThkOWQwODUzODY2ZWMzMjMxNzAyIiwiaWF0IjoxNjM4NDUzODAyLCJleHAiOjE2Mzg0NTU2MDJ9.8ndgkgA_YCOuvueKkgkWIS-xdD7V9aU92btPYs8O3OA
+Content-Type: application/json
+
+### lấy hóa đơn cho user
+GET http://localhost:3000/api/order/stt0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWI4NGE3M2I0ZmNiM2NmNTlhMzZiMjkiLCJpYXQiOjE2NDAwMTE3MDR9.nyGZ4faIRcEDNssVoWoHm8S1IcGcfBrQKfuAxWXZy94
+
+### hóa đơn all khách hàng
+GET http://localhost:3000/api/order/all
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTg5MmM1OTNkYTM5Y2U4NzUxMzIwNmEiLCJpYXQiOjE2MzYzNzk3Mzh9.aXUfLW2MNq4CwzgJlRPFNJxm5_TzshnER-x8DTEn3h4
+
+### lấy hóa đơn cho cửa hàng
+GET http://localhost:3000/api/order/restaurant
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzU3NzI3ODV9.amiP_UGY8Zondu-zIi1kZt3sqjEkcm0paiDWEMFJbPY
+
+### kiểm tra hóa đơn theo ngày
+GET http://localhost:3000/api/order/restaurant/doanh-thu-ngay?dateStart=08/01/2021&dateEnd=12/30/2021
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzU3NzI3ODV9.amiP_UGY8Zondu-zIi1kZt3sqjEkcm0paiDWEMFJbPY
+
+### update đơn hàng tự động
+PUT http://localhost:3000/api/order/618934ad5aafcd73dfac868e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzU3NzI3ODV9.amiP_UGY8Zondu-zIi1kZt3sqjEkcm0paiDWEMFJbPY
+
+### hủy đơn hàng của cửa hàng
+PUT http://localhost:3000/api/order/cancel/619b03dd06244a7e9b5f9700
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzU3NzI3ODV9.amiP_UGY8Zondu-zIi1kZt3sqjEkcm0paiDWEMFJbPY
+
+### hủy đơn hàng của khách hàng
+PUT http://localhost:3000/api/order/cancel/user/619b03dd06244a7e9b5f9700
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MThhOGQ5ZDA4NTM4NjZlYzMyMzE3MDIiLCJpYXQiOjE2Mzc1NDg1Mzl9.qohoI9PTUTiRRXuClsk1e-eoGiM8Kp9WPtlt509Q-gU
+
+### Thu nhập theo tháng
+GET http://localhost:3000/api/order/income?dateStart=10/18/2021&dateEnd=10/30/2021
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzU3NzI3ODV9.amiP_UGY8Zondu-zIi1kZt3sqjEkcm0paiDWEMFJbPY
+
+### Thu nhập theo tháng ádafdafsafa
+GET http://localhost:3000/api/order/income1?dateStart=08/01/2021&dateEnd=11/30/2021
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzU3NzI3ODV9.amiP_UGY8Zondu-zIi1kZt3sqjEkcm0paiDWEMFJbPY
+
+### Thu nhập theo tháng 
+GET http://localhost:3000/api/order/thong-ke-theo-thang?dateStart=10/01/2021&dateEnd=11/31/2021
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzU3NzI3ODV9.amiP_UGY8Zondu-zIi1kZt3sqjEkcm0paiDWEMFJbPY
+
+### Thu nhập theo ngày
+GET http://localhost:3000/api/order/thong-ke-theo-ngay?dateStart=11/12/2021
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzU3NzI3ODV9.amiP_UGY8Zondu-zIi1kZt3sqjEkcm0paiDWEMFJbPY
+
+
+### Topp food
+GET http://localhost:3000/api/order/topFood?dateStart=08/01/2021&dateEnd=12/30/2021
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzU3NzI3ODV9.amiP_UGY8Zondu-zIi1kZt3sqjEkcm0paiDWEMFJbPY
+
+### Test
+GET http://localhost:3000/api/order/test
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzU3NzI3ODV9.amiP_UGY8Zondu-zIi1kZt3sqjEkcm0paiDWEMFJbPY
+
+
+### Tạo choose
+POST http://localhost:3000/api/choose
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzM0MDY2MzJ9.olIolnPvZr2RuVLsaIMPOHMDFjcuwihX8dPn-tFv1Kg
+
+{
+    "name": "Chọn cay",
+    "choose": true
+}
+
+### sữa choose
+PUT http://localhost:3000/api/choose/615bd20591a28e0334a55bcd
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzM0MDY2MzJ9.olIolnPvZr2RuVLsaIMPOHMDFjcuwihX8dPn-tFv1Kg
+
+{
+    "name": "Chọn đế",
+    "choose": false
+}
+
+### xóa choose
+DELETE http://localhost:3000/api/choose/615bd3f791a28e0334a55bdb
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzM0MDY2MzJ9.olIolnPvZr2RuVLsaIMPOHMDFjcuwihX8dPn-tFv1Kg
+
+
+### Lay choose theo cửa hàng
+GET  http://localhost:3000/api/choose/61454e9d3456f3c4aceacea0
+Content-Type: application/json
+
+### Tạo list choose
+POST http://localhost:3000/api/listChoose
+Content-Type: application/json
+
+{
+    "name": "Đế mỏng",
+    "choose": "615bd20591a28e0334a55bcd",
+    "price": 3000
+}
+
+### Lay listChoose theo choose
+GET  http://localhost:3000/api/listChoose/615bd1d591a28e0334a55bcb
+Content-Type: application/json
+
+### Lay listChoose All
+GET  http://localhost:3000/api/listChoose
+Content-Type: application/json
+
+### update list choose
+PUT http://localhost:3000/api/listChoose/615bd2a991a28e0334a55bd0
+Content-Type: application/json
+
+{
+    "name": "Size L",
+    "price": 8000
+}
+
+### delete list choose
+DELETE  http://localhost:3000/api/listChoose/615bd2d391a28e0334a55bd4
+
+### Tạo test
+POST http://localhost:3000/api/test
+Content-Type: application/json
+
+{
+    "name": "aaaaa",
+    "details": [
+        {
+            "nameDetail": "Chọn vvvv",
+            "toppings": [
+                {
+                    "nameTopping": "Size 1111",
+                    "priceTopping": "10000"
+                },
+                {
+                    "nameTopping": "Size 4444",
+                    "priceTopping": "15000"
+                }
+            ]
+        },
+        {
+            "nameDetail": "Chọn cccc",
+            "toppings": [
+                {
+                    "nameTopping": "đế 777",
+                    "priceTopping": "10000"
+                },
+                {
+                    "nameTopping": "đế 8888",
+                    "priceTopping": "15000"
+                }
+            ]
+        }
+    ]
+}
+
+### Tạo test
+GET http://localhost:3000/api/test
+Content-Type: application/json
+
+### Tạo test aa
+GET http://localhost:3000/api/order/haversine?latStart=10.805113892660701&lngStart=106.62225393413311&latEnd=10.768521579380778&lngEnd=106.60216955335217
+Content-Type: application/json
+
+### Tạo hình thức thanh toán
+POST http://localhost:3000/api/pay
+Content-Type: application/json
+
+{
+    "name": "Thanh toán bằng ví"
+}
+
+### Tạo hình thức thanh toán
+GET http://localhost:3000/api/pay
+
+### Tạo discount cho cửa hàng
+POST http://localhost:3000/api/discount
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2Mzg0NTYyNTd9.xGmsSi-xeeuPe6VKyOU7ucKsxWZFZm2reTR7V5Mo5zw
+
+{
+    "nameDiscount": "Khuyến mãi cuối tháng 12",
+    "photo": "https://images.foody.vn/res/g1/4162/s120x120/97fc667e-6a4b-43e5-8722-e4547b5a-672e0dcc-211008124449.jpeg",
+    "start": "2021-12-15",
+    "end": "2021-12-30",
+    "arrayFood": [
+        {
+            "id": "6170f1d1adfb0a6a5efea4ff",
+            "discount": 10
+        },
+        {
+            "id": "6170f49badfb0a6a5efea531",
+            "discount": 20
+        },
+        {
+            "id": "6170f547adfb0a6a5efea568",
+            "discount": 30
+        }
+        ]
+}
+
+### Lấy tất cả khuyến mãi
+GET http://localhost:3000/api/discount/restaurant
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2Mzg0NTYyNTd9.xGmsSi-xeeuPe6VKyOU7ucKsxWZFZm2reTR7V5Mo5zw
+### Lấy tất cả khuyến mãi
+GET http://localhost:3000/api/discount/discount/61553288f122a0f795fa4cce
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ0YjMxMGQ1NzI0NzEyZTdkM2E0ZmIiLCJpYXQiOjE2MzM5NTk3OTF9.ZRMjrdEKcvVEVAnb7lv9jxNdnLRx9lNvdZHJ7sAURIA
+
+### Tạo combo cho cửa hàng
+POST http://localhost:3000/api/combo
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzY5ODU0MzJ9.wLAw50D4tGEnczEgV2K-3u_IOuVuCkKfs69GUFNCXEE
+
+{
+    "name": "Combo test ngày tháng",
+    "photo": "https://images.foody.vn/res/g1/4162/s120x120/97fc667e-6a4b-43e5-8722-e4547b5a-672e0dcc-211008124449.jpeg",
+    "menu": "6170fbcfadfb0a6a5efea908",
+    "discountCombo": 15,
+    "start": "2021-11-16",
+    "end": "2021-11-20",
+    "arrayFood": [
+        {
+            "id": "6170f1d1adfb0a6a5efea4ff",
+            "sl": 2
+        },
+        {
+            "id": "6170f603adfb0a6a5efea5a8",
+            "sl": 1
+        }
+    ]
+}
+
+### Lấy combo cho cửa hàng
+GET http://localhost:3000/api/combo
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzY5ODU0MzJ9.wLAw50D4tGEnczEgV2K-3u_IOuVuCkKfs69GUFNCXEE
+### Lấy combo cho cửa hàng all
+GET http://localhost:3000/api/combo/all
+Content-Type: application/json
+
+### nhập hàng
+PUT http://localhost:3000/api/food/add/sl
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0YXVyYW50SWQiOiI2MTQ1NGU5ZDM0NTZmM2M0YWNlYWNlYTAiLCJpYXQiOjE2MzY5ODU0MzJ9.wLAw50D4tGEnczEgV2K-3u_IOuVuCkKfs69GUFNCXEE
+
+{
+    "quantity": 100,
+    "arrayFood": ["6170f19fadfb0a6a5efea4f8","6170f1d1adfb0a6a5efea4ff","6170f49badfb0a6a5efea531"]
+}

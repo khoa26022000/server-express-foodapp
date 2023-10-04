@@ -1,0 +1,35 @@
+{
+  "name": "thucan-server-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon src/index.js"
+  },
+  "author": "Khoa Nguyen",
+  "license": "ISC",
+  "dependencies": {
+    "argon2": "^0.28.2",
+    "axios": "^0.21.4",
+    "cloudinary": "^1.27.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "haversine": "^1.1.1",
+    "https": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^6.0.5",
+    "socket.io": "^4.3.1",
+    "stripe": "^8.191.0",
+    "twilio": "^3.71.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
